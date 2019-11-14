@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+<style>
+.div{
+	width:300px;
+	margin:0 auto;
+	text-align:center;
+	border:3px solid orange;
+	background-color:white;
+	
+	
+	
+
+	
+}
+.input{
+	margin:3px 0 ;
+	height:30px;
+	width:200px;
+	font-size:15px;
+	font-family:微軟正黑體;
+	font-weight:bold;
+	background-color:orange;
+	border-radius:25px;
+	
+}
+
+
+
+h2{
+	background-color:orange;
+	opacity:0.7;
+	color:black;
+	height:46px;
+	box-shadow: 0 0 15px orange; 
+	
+	margin:10px auto 10px auto;
+
+}
+
+.aaa{
+
+height:30px;
+width:200px;
+border:1px solid orange ;
+
+margin:10px auto ;
+
+}
+
+form{
+color:black;
+font-size:25px;
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="logo" class="container">
+	<h1><a href="#">Well<span>Formed</span></a></h1>
+	<p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a></p>
+</div>
+<div id="menu" class="container">
+	<ul>
+		<li class="current_page_item"><a href="index.jsp" accesskey="1" title="">首頁</a></li>
+	
+		<li><a href="#" accesskey="2" title="">About Us</a></li>
+		<li><a href="booking.jsp" accesskey="3" title="">線上訂位</a></li>
+		
+		<li></li>
+		<li></li>
+		<li><a href="Login.html" accesskey="4" title="">會員登入</a></li>
+	</ul>
+</div>
+<div class="div">
+		<h2>會員登入</h2>
+		<h3 style="color:red">帳號或密碼錯誤<br>請重新輸入</h3>
+		<form method="post" action="Check">
+			帳號:<input class="aaa" type="text" name="username"><br>
+			密碼:<input class="aaa" type="password" name="password"><br>
+			<input class="input" type="submit" value="登入">
+			<button class="input" type="button" onclick="{location.href='Register.html'}">註冊</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900"
+	rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+<script>
+	window.onload = function() {
+		document.getElementById("N").onblur = checkName;
+		document.getElementById("UN").onblur = checkUsername;
+		document.getElementById("P").onblur = checkPassword;
+		document.getElementById("CP").onblur = doubleCheckPassword;
+		document.getElementById("T").onblur = checkPhone;
+		document.getElementById("clean").onclick = cleanForm;
+	}
+</script>
+
+<script>
+	var nameValue
+	var UsernameValue
+	var passwordValue
+	var doublecheckpasswordValue
+	var phoneValue
+
+	function buttonDisable() {
+
+		if (nameValue && UsernameValue && passwordValue
+				&& doublecheckpasswordValue && phoneValue) {
+
+			document.getElementById('G').disabled = false;
+
+		} else {
+
+			document.getElementById('G').disabled = true;
+
+		}
+
+	}
+	function cleanForm() {
+
+		nameValue = false;
+
+		UsernameValue = false;
+
+		passwordValue = false;
+
+		doublecheckpasswordValue = false;
+
+		phoneValue = false;
+
+		document.getElementById("N").innerHTML = "";
+
+		document.getElementById("UN").innerHTML = "";
+
+		document.getElementById("P").innerHTML = "";
+
+		document.getElementById("CP").innerHTML = "";
+
+		document.getElementById("T").innerHTML = "";
+
+		buttonDisable();
+
+	}
+	function checkName() {
+
+		var theCheckName = document.getElementById("N").value;
+
+		var re = /^[\u4e00-\u9fa5]{2,}$/;
+
+		if (theCheckName.length >= 2) {
+
+			if (re.test(theCheckName)) {
+
+				nameValue = true;
+
+				document.getElementById("n").innerHTML = "<img src='imgs/img1.png'>";
+
+			} else {
+
+				nameValue = false;
+
+				document.getElementById("n").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>格式錯誤</span>";
+			}
+
+		} else {
+
+			nameValue = false;
+
+			document.getElementById("n").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>至少兩個字</span>";
+
+		}
+
+		buttonDisable();
+	}
+
+	function checkUsername() {
+
+		var theUsername = document.getElementById("UN").value;
+
+		var re = /^(?=.*[0-9])(?=.*[A-Za-z])(?!.*[\s]).{8,}$/;
+
+		if (theUsername.length >= 6) {
+
+			if (re.test(theUsername)) {
+
+				UsernameValue = true;
+
+				document.getElementById("un").innerHTML = "<img src='imgs/img1.png'>";
+
+			} else {
+
+				UsernameValue = false;
+
+				document.getElementById("un").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>格式錯誤</span>";
+
+			}
+		} else {
+
+			UsernameValue = false;
+
+			document.getElementById("un").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>至少六個字<span>";
+		}
+		buttonDisable();
+	}
+
+	function checkPassword() {
+
+		var thePassword = document.getElementById("P").value;
+
+		var re = /^(?=.*[0-9])(?=.*[A-Za-z])(?=.*[!@#\$%\^&\*])(?!.*[\u4e00-\u9fa5])(?!.*[\s]).{6,}$/;
+
+		if (thePassword.length >= 6) {
+
+			if (re.test(thePassword)) {
+
+				passwordValue = true;
+
+				document.getElementById("p").innerHTML = "<img src='imgs/img1.png'>";
+
+			} else {
+
+				passwordValue = false;
+
+				document.getElementById("p").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>格式錯誤</span>";
+
+			}
+		} else {
+
+			passwordValue = false;
+
+			document.getElementById("p").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>至少六個字<span>";
+		}
+		buttonDisable();
+	}
+
+	function doubleCheckPassword() {
+		var p = document.getElementById("P").value;
+		var cp = document.getElementById("CP").value;
+
+		if (p == cp) {
+
+			doublecheckpasswordValue = true;
+
+			document.getElementById("cp").innerHTML = "<img src='imgs/img1.png'>";
+		} else {
+
+			passwordValue = false;
+
+			document.getElementById("cp").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>密碼不符</span>";
+
+		}
+		buttonDisable();
+
+	}
+
+	function checkPhone() {
+
+		var thePhone = document.getElementById("T").value;
+
+		var re = /^09\d{8}$/;
+
+		if (thePhone.length = 10) {
+
+			if (re.test(thePhone)) {
+
+				phoneValue = true;
+
+				document.getElementById("t").innerHTML = "<img src='imgs/img1.png'>";
+
+			} else {
+
+				phoneValue = false;
+
+				document.getElementById("t").innerHTML = "<img src='imgs/img2.png'> <span class='c1'>格式錯誤</span>";
+
+			}
+
+			buttonDisable();
+		}
+	}
+</script>
+<style>
+.f {
+	color: brown;
+	font-weight: bold;
+	font-size: 150%;
+}
+
+input {
+	height: 30px;
+	width: 180px;
+	border-radius: 15px;
+}
+
+.a {
+	width: 300px;
+	margin: 15px;
+	text-align: right;
+	vertical-align: auto;
+	font-family: 微軟正黑體;
+	color: #AAAAAA;
+}
+
+.s {
+	width: 100px;
+	margin: 15px;
+	text-align: right;
+	vertical-align: auto;
+	font-family: 微軟正黑體;
+	color: orange;
+	font-size: 150%;
+}
+
+.title1 {
+	width: 450px;
+	border-bottom: 1px solid #000000;
+	border: 3px;
+	padding: 0;
+	/* margin:0px 150px; */
+	float: left;
+	margin-left: 58px;
+}
+
+.title {
+	width: 400px;
+	border-bottom: 1px solid #000000;
+	border: 3px;
+	padding: 0px;
+	margin: 20px 70px;
+	float: left;
+	border-radius: 15px;
+	border-left: 100px;
+}
+
+fieldset {
+	width: 500px;
+	border-radius: 15px;
+	border: 6px solid orange;
+	height: 600px;
+	margin: 10px auto;
+	background-color: black;
+}
+
+.kkk {
+	color: orange;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+.c1 {
+	color: grey;
+}
+</style>
+</head>
+<body>
+
+	<div id="logo" class="container">
+		<h1>
+			<a href="#">Well<span>Formed</span></a>
+		</h1>
+		<p>
+			Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>
+		</p>
+	</div>
+	<div id="menu" class="container">
+		<ul>
+			<li class="current_page_item"><a href="index.html" accesskey="1"
+				title="">首頁</a></li>
+			<li><a href="#" accesskey="2" title="">About Us</a></li>
+			<li><a href="booking.html" accesskey="3" title="">一般訂位</a></li>
+
+			<li></li>
+			<li></li>
+			<li><a href="booking.html" accesskey="4" title="">會員登入</a></li>
+		</ul>
+	</div>
+
+
+	<form action="Register" method="post" id="form">
+
+		<fieldset>
+
+			<!-- <p class="ptitle">Form Check</p> -->
+			<legend class="kkk">會員註冊</legend>
+
+			<div class="title">
+
+				<label class="s">姓名：</label><input class="f" name="name" type="text"
+					id="N"> <span id="n"></span><br> <label class="a"></label>
+
+			</div>
+			<br>
+
+			<div class="title">
+
+				<label class="s">帳號：</label><input class="f" name="username"
+					type="password" id="UN"> <span id="un"></span><br> <label
+					class="a">(至少8個字元、包含英文、數字)</label>
+
+			</div>
+			<br>
+
+			<div class="title">
+
+				<label class="s">密碼 : </label><input class="f" name="password"
+					type="password" id="P"> <span id="p"></span><br> <label
+					class="a">(至少6個字、包含英文、數字、特殊字元)</label>
+
+			</div>
+			<br>
+
+			<div class="title">
+
+				<label class="s">確認密碼：</label><input class="f" type="password"
+					id="CP"> <span id="cp"></span><br> <label class="a"></label>
+
+			</div>
+			<br>
+
+			<div class="title">
+
+				<label class="s">手機：</label><input class="f" name="phone"
+					type="text" id="T"> <span id="t"></span><br> <label
+					class="a">(格式：0912345678)</label>
+
+			</div>
+			<br>
+
+
+
+			<div class="title1">
+
+				<label class="s"> </label> <input
+					style="color: black; font-weight: bold; background-color: orange"
+					type="submit" id="G" disabled="disabled" value="送出"> <input
+					style="color: black; font-weight: bold; background-color: red"
+					type="reset" id="clean" value="清除">
+
+			</div>
+			<br>
+
+		</fieldset>
+
+	</form>
+</body>
+</html>
